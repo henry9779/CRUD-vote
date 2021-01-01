@@ -3,5 +3,9 @@ class CandidatesController < ApplicationController
   end
 
   def new
+    @candidate = Candidate.new
+  end
+
+  def create
   end
 end
