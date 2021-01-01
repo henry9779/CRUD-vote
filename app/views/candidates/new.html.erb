@@ -1,5 +1,13 @@
 <h1>新增候選人</h1>
 
+<% if @candidate.errors.any? %>
+  <ul>
+    <% @candidate.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for(@candidate) do |f| %>
 
 <div>
