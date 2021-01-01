@@ -21,6 +21,18 @@ class CandidatesController < ApplicationController
     end
   end
 
+  def edit
+    find_candidate
+  end
+
+  def update
+    find_candidate
+    if @candidate.update(candidate_params)
+      redirect_to root_path, notice: '更新候選人成功'
+    else
+      render :edit
+    end
+  end
 
   private
   def candidate_params
