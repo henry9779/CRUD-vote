@@ -34,6 +34,13 @@ class CandidatesController < ApplicationController
     end
   end
 
+  def destroy
+    find_candidate
+    if @candidate.destroy
+      redirect_to root_path, notice: '刪除候選人成功'
+    end
+  end
+
   private
   def candidate_params
     params.require(:candidate).permit(:name, :age, :party, :politics)
