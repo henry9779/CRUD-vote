@@ -1,5 +1,10 @@
 class CandidatesController < ApplicationController
   def index
+    @candidates = Candidate.all
+  end
+
+  def show
+    find_candidate
   end
 
   def new
@@ -20,5 +25,9 @@ class CandidatesController < ApplicationController
   private
   def candidate_params
     params.require(:candidate).permit(:name, :age, :party, :politics)
+  end
+
+  def find_candidate
+    @candidate = Candidate.find_by(id: params[:id])
   end
 end

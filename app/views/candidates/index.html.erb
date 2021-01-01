@@ -1,4 +1,24 @@
 <h1>投票系統</h1>
 <%= notice %>
 
+<h2>候選人列表</h2>
+<table>
+  <tr>
+    <td>姓名</td>
+    <td>黨派</td>
+    <td>年齡</td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <% @candidates.each do |candidate|%>
+    <tr>
+      <td><%= link_to candidate.name, candidate_path(candidate) %></td>
+      <td><%= candidate.party %></td>
+      <td><%= candidate.age %></td>
+      <td></td>
+    </tr>
+  <% end %>
+</table>
+
 <%= link_to '新增候選人', new_candidate_path %>
