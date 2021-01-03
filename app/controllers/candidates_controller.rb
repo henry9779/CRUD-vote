@@ -39,7 +39,7 @@ class CandidatesController < ApplicationController
   end
 
   def vote
-    @candidate.votes = @candidate.votes + 1
+    @candidate.increment(:vote)
     @candidate.save
     redirect_to root_path, notice: '投票成功'
   end

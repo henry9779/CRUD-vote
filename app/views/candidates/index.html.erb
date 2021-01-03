@@ -8,6 +8,7 @@
     <td>姓名</td>
     <td>黨派</td>
     <td>年齡</td>
+    <td>票數</td>
   </tr>
 
   <% @candidates.each do |candidate|%>
@@ -16,6 +17,7 @@
       <td><%= link_to candidate.name, candidate_path(candidate) %></td>
       <td><%= candidate.party %></td>
       <td><%= candidate.age %></td>
+      <td><%= candidate.votes %></td>
       <td><%= link_to '編輯候選人', edit_candidate_path(candidate) %></td>
       <td>
       <%= link_to '刪除候選人', candidate_path(candidate), method: 'delete', data: {confirm: '確定刪除嗎？'}%>
