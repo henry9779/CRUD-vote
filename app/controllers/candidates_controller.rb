@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-  before_action :find_candidate, only: [:show, :edit, :update, :destroy]
+  before_action :find_candidate, only: [:show, :edit, :update, :destroy, :vote]
 
   def index
     @candidates = Candidate.all
@@ -36,6 +36,12 @@ class CandidatesController < ApplicationController
   def destroy
     @candidate.destroy
     redirect_to root_path, notice: '刪除候選人成功'
+  end
+
+  def vote
+    @candidate.votes = @candidate.votes + 1
+    @candidate.save
+    redirect_to root_path, notice: '投票成功'
   end
 
   private
