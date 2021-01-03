@@ -4,15 +4,15 @@
 <h2>候選人列表</h2>
 <table>
   <tr>
+    <td>投票</td>
     <td>姓名</td>
     <td>黨派</td>
     <td>年齡</td>
-    <td></td>
-    <td></td>
   </tr>
 
   <% @candidates.each do |candidate|%>
     <tr>
+      <td><%= link_to '投票', vote_candidate_path(candidate) %></td>
       <td><%= link_to candidate.name, candidate_path(candidate) %></td>
       <td><%= candidate.party %></td>
       <td><%= candidate.age %></td>
