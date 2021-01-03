@@ -5,4 +5,6 @@ class Candidate < ApplicationRecord
   validates :party, presence: true
   validates :politics, presence: true
 
+  has_many :votelogs
+
 end

@@ -39,8 +39,8 @@ class CandidatesController < ApplicationController
   end
 
   def vote
-    @candidate.increment(:vote)
-    @candidate.save
+    # Votelog.create(candidate: @candidate, ip_address: request.remote_ip)
+    @candidate.votelogs.create(ip_address: request.remote_ip)
     redirect_to root_path, notice: '投票成功'
   end
 
